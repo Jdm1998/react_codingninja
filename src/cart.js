@@ -27,6 +27,16 @@ class Cart extends React.Component {
       ],
     };
   }
+  onIncrease = (product) => {
+    console.log("hi  ", product);
+    const { products } = this.state;
+    var x = products.indexOf(product);
+     products[x].qty += 1;
+
+    this.setState({
+      products: products,
+    });
+  };
 
   onDecrease = (product) => {
     console.log("hi  ", product);
@@ -42,7 +52,7 @@ class Cart extends React.Component {
     console.log("hi  ", product);
     const { products } = this.state;
     var x = products.indexOf(product);
-    products.splice(x,1);
+    products.splice(x, 1);
     this.setState({
       products: products,
     });
