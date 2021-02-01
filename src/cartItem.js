@@ -34,18 +34,18 @@ import ReactDom from 'react-dom';
               <div className="cart-item-actions">
                 <img
                   src="https://cdn0.iconfinder.com/data/icons/ui-16px-perfect-megapack-line/16/82_Add-512.png"
-                  onClick={() => this.props.onIncrease(this.props.product)}
+                  onClick={() => props.onIncrease(props.product)}
                   className=" action increase"
                 ></img>
                 <img
                   src="https://cdn3.iconfinder.com/data/icons/user-interface-169/32/minus-512.png"
                   className=" action decrease"
-                  onClick={()=>{this.props.onDecrease(this.props.product)}}
+                  onClick={()=>{props.onDecrease(props.product)}}
                 ></img>
                 <img
                   src="https://image.flaticon.com/icons/png/512/61/61848.png"
                   className="action delete"
-                  onClick={()=>{this.props.onDelete(this.props.product)}}
+                  onClick={()=>{props.onDelete(props.product)}}
                 ></img>
               </div>
             </div>

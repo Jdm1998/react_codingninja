@@ -43,9 +43,9 @@ import CartItem from "./cartItem";
           return (
             <CartItem
               product={product}
-              // onIncrease={this.onIncrease}
-              // onDecrease={this.onDecrease}
-              // onDelete={this.onDelete}
+               onIncrease={props.increase}
+              onDecrease={props.decrease}
+              onDelete={props.delete}
             />
           );
         })}
