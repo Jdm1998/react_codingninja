@@ -1,6 +1,6 @@
 
 
- const navbar=()=>{
+ const navbar=(props)=>{
     return (
       <div className="navbar" style={style.nav}>
         
@@ -37,7 +37,7 @@ const style = {
     padding: "4px 8px",
     position: "absolute",
     right: 0,
-    top: 5,
+    top: 5
   },
   cartIcon: {
     height: 32,

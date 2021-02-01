@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-  class CartItem extends React.Component {
+    const CartItem =(props)=> {
      
     
       // increase=()=>{
@@ -19,8 +19,8 @@ import ReactDom from 'react-dom';
       //     })
       //     console.log(this.state)
       //   }
-    render () {
-      const { title, qty, price, img } = this.props.product;
+     {
+      const { title, qty, price, img } = props.product;
 
         return (
           <div className="cart-item">
