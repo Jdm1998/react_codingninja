@@ -6,7 +6,8 @@ class App extends react.Component {
   constructor() {
     super();
     this.state = {
-      products: [ ]
+      products: [ ],
+      loading:true
        
     };
   }
@@ -22,11 +23,13 @@ return " ";
         })
         const products = snapshot.docs.map((doc) => {
           console.log("data", doc.data());
-
-          return doc.data();
+const data=doc.data();
+data["id"]=doc.id;
+          return data;
         });
        this.setState ( {
-         products
+         products,
+         loading:false
        })
 
       })
@@ -69,17 +72,27 @@ count+=product.qty;
   })
   return count;
 }
+total=()=>{
+  let t=0;
+  const{products}=this.state;
+  products.forEach((product)=>{
+    t+=product.qty*product.price;
+  })
+  return t;
+}
   render() {
     return (
       <div className="App">
         <Navbar count={this.getCount()} />
-        <Cart products={this.state.products}
-         increase={this.increase} 
-         decrease={this.decrease}
-         delete={this.delete}
-         getCount={this.getCount}
-         
-         />
+        <Cart
+          products={this.state.products}
+          increase={this.increase}
+          decrease={this.decrease}
+          delete={this.delete}
+          getCount={this.getCount}
+        />
+        {this.state.loading&&<h1>loading...</h1>}
+        <span>total={this.total()}</span>
       </div>
     );
   }
