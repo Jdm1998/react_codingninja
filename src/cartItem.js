@@ -1,31 +1,13 @@
-import React from 'react';
-import ReactDom from 'react-dom';
     const CartItem =(props)=> {
      
     
-      // increase=()=>{
-      //        console.log("he");
-      //       this.setState({
-      //           qty:this.state.qty+1,
-      //       })
-      //       console.log(this.state)
-      //   }
-      //   decrease=()=>{
-      //     console.log("de");
-      //     if(this.state.qty!=0)
-      //     this.setState({
-
-      //       qty:this.state.qty-1
-      //     })
-      //     console.log(this.state)
-      //   }
-     {
+      
       const { title, qty, price, img } = props.product;
 
         return (
           <div className="cart-item">
             <div className="left-block">
-              <img src="" style={styles.image} />
+              <img src={img} style={styles.image} />
             </div>
             <div className="right-block">
               <div style={{ color: "#777", font: 55 }}>{title}</div>
@@ -51,7 +33,7 @@ import ReactDom from 'react-dom';
             </div>
           </div>
         );
-    }
+    
 }
 const styles={
     image: {

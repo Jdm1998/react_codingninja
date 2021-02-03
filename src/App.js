@@ -1,32 +1,36 @@
 import Cart from'./cart'
 import react from 'react';
-import CartItem from './cartItem.js';
-import Navbar from './nav.js';
+import Navbar from './nav';
+import firebase from 'firebase/app'
 class App extends react.Component {
   constructor() {
     super();
     this.state = {
-      products: [
-        {
-          title: "phone1",
-          qty: 1,
-          price: 111,
-          img: "",
-        },
-        {
-          title: "phone2",
-          qty: 2,
-          price: 222,
-          img: "",
-        },
-        {
-          title: "phone3",
-          qty: 3,
-          price: 333,
-          img: "",
-        },
-      ],
+      products: [ ]
+       
     };
+  }
+  componentDidMount(){
+    firebase
+      .firestore()
+      .collection('items')
+      .get()
+      .then((snapshot)=>{
+      //  console.log("firebase",snapshot);
+     snapshot.docs.map((doc)=>{
+return " ";
+        })
+        const products = snapshot.docs.map((doc) => {
+          console.log("data", doc.data());
+
+          return doc.data();
+        });
+       this.setState ( {
+         products
+       })
+
+      })
+       
   }
   increase = (product) => {
     const { products } = this.state;
@@ -74,6 +78,7 @@ count+=product.qty;
          decrease={this.decrease}
          delete={this.delete}
          getCount={this.getCount}
+         
          />
       </div>
     );

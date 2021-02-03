@@ -1,5 +1,4 @@
-import React from "react";
-import ReactDom from "react-dom";
+
 import CartItem from "./cartItem";
   const Cart =(props)=> {
   
@@ -34,7 +33,7 @@ import CartItem from "./cartItem";
   //   });
   // };
 
-   {
+   
     const { products } = props;
     return (
       <div className="cart">
@@ -46,11 +45,12 @@ import CartItem from "./cartItem";
                onIncrease={props.increase}
               onDecrease={props.decrease}
               onDelete={props.delete}
+              key={product.id}
             />
           );
         })}
       </div>
     );
-  }
+  
 }
 export default Cart;
